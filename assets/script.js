@@ -46,6 +46,8 @@ if(nineAm) {
 for(var i=9;i<=17;i++) {
     // Get the current hour
 
+    var today = new Date();
+
     var amPm="am";
     if(i>=12) {
         amPm="pm";
@@ -57,19 +59,19 @@ for(var i=9;i<=17;i++) {
 
     var targetId="#"+hour+amPm;
 
-                     
+
 
     var className="future";
-    /*if (currentTime > i) {
+    var currentTime= today.getHours();
+
+    if (currentTime < i) {
         className = "class future";
-    } else if (currentTime < i) {
+    } else if (currentTime > i) {
         className = "class past";
     } else {
-        className = "class current";
-    }*/
-    // If currentTime > i => class future
-    // else if currentTime < i class past
-    // else class current
+        className = "class present";
+    }
+    
 
     $(targetId).addClass(className);
 
